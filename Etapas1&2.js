@@ -1,3 +1,10 @@
+/* 
+    Equipe: 
+        Thaís de Araújo de Medeiros - Subturma 01C (Líder) 
+        Andryele Eduarda de Araújo Medeiros - Subturma 01C 
+        Etapas 1 e 2
+*/
+
 var x = 300, y = 350; //objeto
 var x1 = 25, y1 = 25; //obstáculo
 
