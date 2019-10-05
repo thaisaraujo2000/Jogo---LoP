@@ -17,9 +17,7 @@ function setup() {
 function draw() {
   background(0); // cor de fundo (0 a 255) 0 - preto, 255 - branco
   square(x1, y1, 50); // criar um quadrado (posição-corresponde à coordenada x1, , posição-corresponde à coordenada y1,tamanho) - obstáculo
-
   fill(255); //preencher
-  
   ellipse(x, y, 30,30); // criar uma elipse (posição-coordenada x, posição-coordenada y, largura, altura) - como a largura (30) e a altura (30) são iguais, a elipse vai corresponder a um círculo 
   
 //A função keyIsDown () serve para verificar se determinada tecla está sendo pressionada - movimentação do objeto (elipse) 
@@ -45,7 +43,8 @@ function draw() {
     y = y + 6;
     //o objeto vai se movimentar no sentido da coordenada y - para baixo
   }
-  //retornar a determinada posição ao atingir os limites
+    
+  //retornar a determinada posição ao atingir os limites (objeto)
  if(x < 0){
     x = 400;
   }
