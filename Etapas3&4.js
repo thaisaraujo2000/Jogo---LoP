@@ -73,10 +73,10 @@ function draw() {
   //objeto1
   y1 = y1 + 6;
   if(y1 > 400){
-    y1 = -random (50);
-    x1 = random (253);
-    console.log(y1); // posição aleatória para o obstáculo ressurgir no eixo y 
-    console.log(x1); // posição aleatória para o obstáculo ressurgir no eixo x
+    y1 = -random (50);// posição aleatória para o obstáculo ressurgir no eixo y 
+    x1 = random (253);// posição aleatória para o obstáculo ressurgir no eixo x
+    console.log(y1); 
+    console.log(x1); 
   }
   
   //objeto2
