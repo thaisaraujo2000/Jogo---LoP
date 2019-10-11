@@ -3,7 +3,7 @@
     Equipe: 
         Thaís de Araújo de Medeiros - Subturma 01C (Líder) 
         Andryele Eduarda de Araújo Medeiros - Subturma 01C 
-        Etapas 1 e 2
+        Etapas 3 e 4
 */
 
 var x = 300, y = 350; //objeto
