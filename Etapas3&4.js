@@ -89,7 +89,7 @@ function draw() {
   }
   
   //disparo
-  if (keyIsDown(CONTROL) && estadoDisparo == false){
+  if (keyIsDown(CONTROL) && estadoDisparo == false){ //se a tecla CTRL for apertada, vai sair um disparo do meio do jogador
     xd = x;
     yd = y;
     estadoDisparo = true;
