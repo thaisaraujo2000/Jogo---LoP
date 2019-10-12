@@ -8,7 +8,7 @@
 var x = 300, y = 350; //objeto
 var x1 = 25, y1 = 25; //obstáculo1
 var x2 = 200, y2 = 55; //obstáculo2
-var xd = 0, yd = 0, zd = 0, wd = 0; //disparo
+var xd = 0, yd = 0; //disparo
 var estadoDisparo = false;
 
 function setup() {
