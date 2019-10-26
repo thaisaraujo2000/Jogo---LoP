@@ -1,5 +1,4 @@
-  
-/* 
+  /*
     Equipe: 
         Thaís de Araújo de Medeiros - Subturma 01C (Líder) 
         Andryele Eduarda de Araújo Medeiros - Subturma 01C 
@@ -11,27 +10,27 @@ var x1 = 25, y1 = 25; //obstáculo1
 var x2 = 200, y2 = 55; //obstáculo2
 var xd = 0, yd = 0; //disparo
 var estadoDisparo = false;
-var vidas = 5;
-var pontos = 0;
-var dificuldade = 1;
-var raioP = 15;
-var raioO = 30;
+var vidas = 5; //quantidade de vidas iniciais
+var pontos = 0; //quantidade de pontos iniciais
+var dificuldade = 1; //nível inicial
+var raioP = 15, raioO = 25; //raios
 
 function setup() {
   createCanvas(400, 400);
   //criar uma área de desenho 400x400
 }
 
-function draw() { //criando objetos
-  background(219,112,147); // cor de fundo (0 a 255) 0 - preto, 255 - branco
+function draw() { 
+  background(219,112,147); // cor de fundo
   
   fill(218,165,32);//preencher obstáculos
   ellipse(x1, y1, 50); // criar uma ellipse (posição-corresponde à coordenada x1, , posição-corresponde à coordenada y1,tamanho) - obstáculo
   ellipse(x2, y2, 45);
   
-  fill(255); //preencher ellipse
-  ellipse(x, y, 2*raioP,2*raioP); // criar uma elipse (posição-coordenada x, posição-coordenada y, largura, altura) - como a largura (30) e a altura (30) são iguais, a elipse vai corresponder a um círculo 
+  fill(255); //preencher ellipse (jogador)
+  ellipse(x, y, 2*raioP,2*raioP); // criar uma elipse (posição-coordenada x, posição-coordenada y, largura, altura)
   
+  //informações sobre o jogo na tela
   textSize(18);
   fill(255);
   text('Vidas: '+vidas, 10, 30);
@@ -43,12 +42,10 @@ function draw() { //criando objetos
   Disparo();
   RetornoLimites ();
   MovimentoObs()
-  Dist();
- 
+  Colisao();
 }
 
-function MovimentoObjeto(){
- //função responsável pela movimentação do objeto (ellipse) pelas teclas
+function MovimentoObjeto(){ //função responsável pela movimentação do jogador pelas teclas
   if(keyIsDown(RIGHT_ARROW)){ 
     //apertando a tecla da seta para a direita
     x = x + 6; 
@@ -73,7 +70,7 @@ function MovimentoObjeto(){
   }
 }
  
-function RetornoLimites() { // função para retornar a determinada posição ao atingir os limites (o objeto)
+function RetornoLimites() { // função para retornar a determinada posição ao atingir os limites (jogador)
  if(x < 0){
     x = 400;
   }
@@ -109,8 +106,7 @@ function MovimentoObs() {  //função responsável pela movimentação dos obst�
   }
 }
 
-function Disparo(){
-  //disparo
+function Disparo(){ //disparo
   if (keyIsDown(32) && estadoDisparo == false){ //se a tecla de espaço (Código Decimal ASCII - 32) for apertada, vai sair um disparo do meio do jogador
     xd = x;
     yd = y;
@@ -124,8 +120,9 @@ function Disparo(){
     }
   }
 }
-function Dist(){
-  if (dist(x, y, x1, y1)<raioP+raioO){
+
+function Colisao(){ //função responsável pela colisão do jogador com os obstáculos
+  if (dist(x, y, x1, y1)<raioP+raioO){ //obstáculo 1
     x = 200;
     y = 375;
     vidas--;
@@ -133,7 +130,7 @@ function Dist(){
       vidas=0;
     }
       }
-  if (dist(x, y, x2, y2)<raioP+raioO){
+  if (dist(x, y, x2, y2)<raioP+raioO){ //obstáculo 2
     x = 200;
     y = 375;
     vidas--;
