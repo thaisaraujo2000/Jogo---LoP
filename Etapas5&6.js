@@ -10,10 +10,10 @@ var x1 = 25, y1 = 25; //obstáculo1
 var x2 = 200, y2 = 55; //obstáculo2
 var xd = 0, yd = 0; //disparo
 var estadoDisparo = false;
-var vidas = 5; //quantidade de vidas iniciais
+var vidas = 10; //quantidade de vidas iniciais
 var pontos = 0; //quantidade de pontos iniciais
 var dificuldade = 1; //nível inicial
-var raioP = 15, raioO = 25; //raios
+var raioP = 15, raioO = 25; //raios da ellipse jogador
 
 function setup() {
   createCanvas(400, 400);
@@ -29,6 +29,7 @@ function draw() {
   
   fill(255); //preencher ellipse (jogador)
   ellipse(x, y, 2*raioP,2*raioP); // criar uma elipse (posição-coordenada x, posição-coordenada y, largura, altura)
+    
   
   //informações sobre o jogo na tela
   textSize(18);
@@ -43,9 +44,11 @@ function draw() {
   RetornoLimites ();
   MovimentoObs()
   Colisao();
+  ColisaoDisparo();
 }
 
-function MovimentoObjeto(){ //função responsável pela movimentação do jogador pelas teclas
+//função responsável pela movimentação do jogador pelas teclas
+function MovimentoObjeto(){ 
   if(keyIsDown(RIGHT_ARROW)){ 
     //apertando a tecla da seta para a direita
     x = x + 6; 
@@ -69,8 +72,9 @@ function MovimentoObjeto(){ //função responsável pela movimentação do jogad
     //o objeto vai se movimentar no sentido da coordenada y - para baixo
   }
 }
- 
-function RetornoLimites() { // função para retornar a determinada posição ao atingir os limites (jogador)
+
+// função para retornar a determinada posição ao atingir os limites (jogador)
+function RetornoLimites() { 
  if(x < 0){
     x = 400;
   }
@@ -87,8 +91,9 @@ function RetornoLimites() { // função para retornar a determinada posição ao
     y = 250;
   }
 }
-  
-function MovimentoObs() {  //função responsável pela movimentação dos obstáculos
+
+//função responsável pela movimentação dos obstáculos
+function MovimentoObs() {  
   //objeto1
   y1 = y1 + 6;
   if(y1 > 400){
@@ -97,16 +102,16 @@ function MovimentoObs() {  //função responsável pela movimentação dos obst�
     console.log(y1); 
     console.log(x1); 
   }
-  
   //objeto2
   y2 = y2 + 4;
   if(y2 > 400){
     y2 = -random (50); // posição aleatória para o obstáculo ressurgir no eixo y 
-    x2 = random (523); // posição aleatória para o obstáculo ressurgir no eixo x 
+    x2 = random (233); // posição aleatória para o obstáculo ressurgir no eixo x 
   }
 }
 
-function Disparo(){ //disparo
+//disparo
+function Disparo(){ 
   if (keyIsDown(32) && estadoDisparo == false){ //se a tecla de espaço (Código Decimal ASCII - 32) for apertada, vai sair um disparo do meio do jogador
     xd = x;
     yd = y;
@@ -121,21 +126,36 @@ function Disparo(){ //disparo
   }
 }
 
-function Colisao(){ //função responsável pela colisão do jogador com os obstáculos
+//função responsável pela colisão do jogador com os obstáculos
+function Colisao(){ 
   if (dist(x, y, x1, y1)<raioP+raioO){ //obstáculo 1
-    x = 200;
-    y = 375;
+    x1 = random(200);
+    y1 = -random(375);
     vidas--;
-    if (vidas<=0){
-      vidas=0;
     }
-      }
   if (dist(x, y, x2, y2)<raioP+raioO){ //obstáculo 2
+    x2 = random(200);
+    y2= -random(375);
+    vidas--;
+    } 
+  if (vidas<0){ //se a quantidade de vidas for menor do que 0, vidas vai ser 0 
+    vidas=0;
+    //o jogador vai retornar ao ponto inicial
     x = 200;
     y = 375;
-    vidas--;
-    if (vidas<=0){
-      vidas=0;
-    } 
+  }
+}
+
+//função responsável pela colisão do disparo com os obstáculos
+function ColisaoDisparo(){ 
+  if (dist(xd,yd,x1,y1)<raioP+raioO){ //disparo com o obstáculo 1
+    x1 = random (70);
+    y1 = -random (200); 
+    pontos+=10;
+  }
+  if (dist(xd,yd,x2,y2)<raioP+raioO){ //disparo com o obstáculo 2
+    x2 = random (100);
+    y2 = -random (350);
+    pontos+=10;
   }
 }
