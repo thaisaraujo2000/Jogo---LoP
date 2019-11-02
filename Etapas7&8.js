@@ -13,7 +13,7 @@ var vetorX = [], vetorY = [], vetorV = [], vetorCor = [];
 //vetores coordenadas X e Y, vetor velocidade dos obstáculos e a cor, que futuramente vai virar imagem
 var qtdDeElementos = 5;
 var i;
-var barreiraDePontos = 50;
+var barreiraDePontos = 1000;
 
 function setup() {  
   createCanvas(larguraT, alturaT);
@@ -204,6 +204,6 @@ function caracteristicasObstaculos (){
 function barreiraPontos (){
   if (pontos > barreiraDePontos){
     dificuldade++;
-    barreiraDePontos+=50;
+    barreiraDePontos+=1000;
   }
 }
