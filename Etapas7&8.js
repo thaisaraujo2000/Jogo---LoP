@@ -6,7 +6,7 @@ var estadoDisparo = false;
 var vidas = 10; //quantidade de vidas iniciais
 var pontos = 0; //quantidade de pontos iniciais
 var dificuldade = 1; //nível inicial
-var raioJ = 25, raioO = 25; //raios da ellipse jogador e obstáculos
+var raioJ = 25, raioO = 25, raioD = 3; //raios da ellipse jogador, obstáculos e disparo
 var larguraT = 600, alturaT = 600;
 var img, img1, img2, img3;
 var vetorX = [], vetorY = [], vetorV = [], vetorCor = [];
@@ -146,7 +146,7 @@ function Disparo(){
   if(estadoDisparo == true){
   //image(img1,xd,yd,70,70);  
   //imageMode(CENTER);
-    ellipse(xd, yd, 6, 6); //criação do disparo
+    ellipse(xd, yd, 2*raioD, 2*raioD); //criação do disparo
     yd = yd - 10; // movimentação do disparo
     if(yd < 0){
       estadoDisparo = false; //ao ultrapassar os limites da tela, não há mais disparo
@@ -172,7 +172,7 @@ function Colisao(){
 //função responsável pela colisão do disparo com os obstáculos
 function ColisaoDisparo(){ 
   for (i = 0; i<qtdDeElementos; i++){
-    if (dist(xd,yd,vetorX[i],vetorY[i])<raioJ+raioO){ 
+    if (dist(xd,yd,vetorX[i],vetorY[i])<raioD+raioO){ 
       vetorX[i] = random (0, 600);
       vetorY[i] = random (-600, 0); 
       pontos+=10;
