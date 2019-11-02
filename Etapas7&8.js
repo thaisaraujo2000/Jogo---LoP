@@ -51,7 +51,7 @@ function Obstaculos(){
     //image(img2,vetorX[i],vetorY[i],70,70);  
     //imageMode(CENTER);
     fill(vetorCor[i]);
-    ellipse(vetorX[i], vetorY[i], 2*raioO, 2*raioO);//criar uma ellipse (posição-corresponde à coordenada x1, , posição-corresponde à coordenada y1,tamanho) - obstáculo
+    ellipse(vetorX[i], vetorY[i], 2*raioO, 2*raioO);//criar uma ellipse (posição-corresponde à coordenada x, , posição-corresponde à coordenada y,tamanho) - obstáculo
     
   }
 }
