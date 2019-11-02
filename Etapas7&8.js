@@ -187,7 +187,7 @@ function ColisaoDisparo(){
 
 //inserir imagem
 /*function preload() {
-	img = loadImage("figuras/harry.png");
+    img = loadImage("figuras/harry.png");
     img1 = loadImage("figuras/magia.png");
     img2 = loadImage("figuras/dementadores.png");
     img3 = loadImage("figuras/Hogwarts.jpg");
