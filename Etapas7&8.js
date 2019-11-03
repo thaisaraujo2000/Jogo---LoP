@@ -102,7 +102,7 @@ function RetornoLimites() {
     x = 565;
   }
   
-  if(y < 36){ //limite da parte superior (metade da tela)
+  if(y < 36){ //limite da parte superior
     y = 36;
   }
 }
