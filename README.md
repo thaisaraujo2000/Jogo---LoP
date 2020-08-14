@@ -1,3 +1,3 @@
-# JogoLoP
-Equipe: 
-  Thaís de Araújo de Medeiros - Subturma 01C (Líder) e Andryele Eduarda de Araújo Medeiros - Subturma 01C 
+# As Aventuras de Harry Potter
+
+> Desenvolvido por Thaís de Araújo de Medeiros (@thaisaraujo2000 - Líder) e Andryele Eduarda de Araújo Medeiros (@andryele) 
